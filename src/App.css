@@ -182,3 +182,708 @@
     border-right-color: var(--border);
   }
 }
+
+
+/* --- ESTILO NECRON (WARHAMMER 40K) --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero-simple {
+  background-color: #000000;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #10b981;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.2rem;
+  line-height: 1.2;
+}
+
+.hero-title span {
+  color: #10b981;
+}
+
+.hero-description {
+  color: #9ca3af;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.hero-button {
+  display: inline-block;
+  background-color: #10b981;
+  color: #050807;
+  padding: 0.8rem 2rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-button:hover {
+  background-color: #34d399;
+  transform: translateY(-2px);
+}
+/* --- LAYOUT GLOBAL DA PÁGINA --- */
+.page-wrapper {
+  background-color: #050807;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #e5e7eb;
+}
+
+.main-content {
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+/* --- CABEÇALHO DA PÁGINA --- */
+.page-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.badge-necron {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #34d399;
+  background: rgba(6, 78, 59, 0.4);
+  border: 1px solid rgba(52, 211, 153, 0.4);
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.highlight-emerald {
+  color: #34d399;
+  text-shadow: 0 0 15px rgba(52, 211, 153, 0.5);
+}
+
+.page-subtitle {
+  color: #9ca3af;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- PAINEL CONTAINER DA LISTAGEM --- */
+.necron-list-card {
+  background: rgba(13, 20, 16, 0.85);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(16, 185, 129, 0.08);
+  transition: border-color 0.3s ease;
+}
+
+.necron-list-card:hover {
+  border-color: rgba(52, 211, 153, 0.45);
+}
+
+/* Estilização automática para tabelas dentro do ListagemProdutos */
+.necron-list-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.necron-list-card th {
+  background-color: rgba(6, 78, 59, 0.3);
+  color: #34d399;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(52, 211, 153, 0.3);
+}
+
+.necron-list-card td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #d1d5db;
+}
+
+.necron-list-card tr:hover td {
+  background-color: rgba(52, 211, 153, 0.05);
+}
+
+.product-list {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  color: #e5e7eb;
+}
+
+.product-list__card {
+  overflow: hidden;
+  background: #111815;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.product-list__toolbar,
+.product-list__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.product-list__toolbar {
+  padding-bottom: 0.25rem;
+}
+
+.product-list__eyebrow {
+  color: #6ee7b7;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.product-list__title {
+  margin: 0.25rem 0;
+  color: #f0fdf4;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.product-list__subtitle {
+  color: #94a3a8;
+  font-size: 0.9rem;
+}
+
+.product-list__create {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #34d399;
+  border-radius: 6px;
+  background: #10b981;
+  color: #06281c;
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.product-list__create:hover {
+  background: #34d399;
+  transform: translateY(-1px);
+}
+
+.product-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  background: #111815;
+  color: #d1d5db;
+}
+
+.product-table__scroll {
+  overflow-x: auto;
+}
+
+.product-table th,
+.product-table td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.product-table th {
+  background: #17352b;
+  color: #a7f3d0;
+  border-bottom: 2px solid #27815f;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.product-table td {
+  border-bottom: 1px solid #26352e;
+  font-size: 0.9rem;
+}
+
+.product-table__description {
+  max-width: 260px;
+  padding: 0.85rem 1rem;
+  color: #b7c5bf;
+  font-size: 0.85rem;
+  line-height: 1.35;
+}
+
+.product-table__stock-value {
+  color: #f1f5f9;
+  font-family: var(--mono);
+  font-weight: 700;
+}
+
+.product-table__low-stock {
+  display: inline-block;
+  margin-left: 0.55rem;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid #9f4545;
+  border-radius: 4px;
+  background: #3b1818;
+  color: #fca5a5;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.product-table__status {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.product-table__status.is-active {
+  border-color: #34745a;
+  background: #153c2c;
+  color: #a7f3d0;
+}
+
+.product-table__status.is-inactive {
+  border-color: #8f4545;
+  background: #3b1818;
+  color: #fecaca;
+}
+
+.product-table tbody tr:nth-child(even) {
+  background: #151f1b;
+}
+
+.product-table tbody tr:hover {
+  background: #1c3329;
+}
+
+.product-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.product-table__empty {
+  padding: 3rem 1rem !important;
+  color: #94a3a8;
+  font-style: italic;
+  text-align: center !important;
+}
+
+.product-table__details {
+  padding: 0.45rem 0.7rem;
+  border: 1px solid #34745a;
+  border-radius: 5px;
+  background: #16251e;
+  color: #a7f3d0;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 700;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.product-table__details:hover {
+  border-color: #6ee7b7;
+  background: #1b533c;
+}
+
+.product-form-page {
+  flex: 1;
+  min-height: calc(100vh - 64px);
+  padding: 2.5rem 1.5rem;
+  background: #07100c;
+  color: #e5e7eb;
+}
+
+.product-form-container {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.product-form {
+  position: relative;
+  padding: 2.5rem;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  border-radius: 10px;
+  background: #0c1611;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4), 0 0 25px rgba(16, 185, 129, 0.08);
+}
+
+.product-form::before {
+  position: absolute;
+  top: 0;
+  left: 2.5rem;
+  width: 4rem;
+  height: 3px;
+  background: #34d399;
+  content: '';
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.7);
+}
+
+.product-form__header {
+  margin-bottom: 2.25rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #263c31;
+}
+
+.product-form__eyebrow {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  color: #6ee7b7;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.product-form__title {
+  margin: 0;
+  color: #f0fdf4;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.product-form__title span {
+  color: #34d399;
+}
+
+.product-form__subtitle {
+  margin-top: 0.55rem;
+  color: #91a39a;
+  font-size: 0.9rem;
+}
+
+.product-form__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.product-form__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.product-form__row--wide {
+  grid-template-columns: minmax(0, 1.6fr) minmax(150px, 0.8fr);
+}
+
+.product-form__row--metrics {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.product-form__field {
+  min-width: 0;
+}
+
+.product-form__label {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: #6ee7b7;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.product-form__input {
+  width: 100%;
+  min-height: 2.9rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid #2d4a3b;
+  border-radius: 5px;
+  outline: none;
+  background: #07100c;
+  color: #f1f5f9;
+  font: inherit;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.product-form__input::placeholder {
+  color: #60736a;
+}
+
+.product-form__input:hover {
+  border-color: #46755d;
+}
+
+.product-form__input:focus {
+  border-color: #34d399;
+  background: #0a1710;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.12);
+}
+
+.product-form__textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.product-form__checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: 0.25rem;
+  padding: 0.8rem 0;
+  border-top: 1px solid #263c31;
+}
+
+.product-form__checkbox {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: #10b981;
+  cursor: pointer;
+}
+
+.product-form__checkbox-label {
+  color: #cbd5d1;
+  cursor: pointer;
+  font-size: 0.88rem;
+}
+
+.product-form__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #263c31;
+}
+
+.product-form__submit,
+.product-form__cancel {
+  min-height: 3rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.product-form__submit {
+  border: 1px solid #34d399;
+  background: #10b981;
+  color: #06281c;
+}
+
+.product-form__submit:hover {
+  background: #34d399;
+  transform: translateY(-1px);
+}
+
+.product-form__cancel {
+  border: 1px solid #34745a;
+  background: transparent;
+  color: #a7f3d0;
+}
+
+.product-form__cancel:hover {
+  border-color: #6ee7b7;
+  background: #153c2c;
+}
+
+@media (max-width: 700px) {
+  .product-form-page {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .product-form {
+    padding: 1.5rem 1rem;
+  }
+
+  .product-form::before {
+    left: 1rem;
+  }
+
+  .product-form__title {
+    font-size: 1.55rem;
+  }
+
+  .product-form__row,
+  .product-form__row--wide,
+  .product-form__row--metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .product-form__actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-list__pagination {
+  padding: 0.9rem 1rem;
+  border-top: 1px solid #26352e;
+  background: #0b100e;
+  color: #94a3a8;
+  font-size: 0.78rem;
+}
+
+.product-list__pagination strong {
+  color: #6ee7b7;
+}
+
+.product-list__page-button {
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.55rem;
+  border: 1px solid #315646;
+  border-radius: 5px;
+  background: #111815;
+  color: #a7b8b0;
+  cursor: pointer;
+  font-size: 0.78rem;
+}
+
+.product-list__page-button:hover:not(:disabled),
+.product-list__page-button.is-active {
+  border-color: #34d399;
+  background: #174936;
+  color: #d1fae5;
+}
+
+.product-list__page-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.product-table td:nth-child(1),
+.product-table td:nth-child(2),
+.product-table td:nth-child(4),
+.product-table td:nth-child(5) {
+  white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+  .product-list {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .product-table th,
+  .product-table td {
+    padding: 0.75rem;
+  }
+
+  .product-list__toolbar,
+  .product-list__pagination {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .product-list__create {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+
+/* Estilo global da página */
+body {
+  margin: 0;
+  background-color: #090d0b;
+  color: #e5e7eb;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Personalização da Barra de Rolagem (Scrollbar) Necron */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050807;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #064e3b;
+  border-radius: 4px;
+  border: 1px solid rgba(52, 211, 153, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #10b981;
+}
+
+/* Efeito de brilho pulsante (opcional para badges ou botões) */
+@keyframes necron-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+  }
+}
+
+.glow-animation {
+  animation: necron-glow 3s infinite ease-in-out;
+}
