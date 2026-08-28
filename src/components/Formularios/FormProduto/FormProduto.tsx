@@ -14,7 +14,7 @@ const obterDataAtual = () => {
 function FormProduto() {
     const navigate = useNavigate();
     const [formData, setFormData] = useState<ProdutoDTO>({
-        id_categoria: undefined,
+        id_categoria: 0,
         data_cadastro: obterDataAtual(),
         nome: '',
         codigo: '',
@@ -26,7 +26,7 @@ function FormProduto() {
     });
 
     // Atualiza o state a partir de qualquer input do formulário
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value, type } = e.target as HTMLInputElement;
 
         // Trata campos do tipo checkbox (booleano)
@@ -63,6 +63,7 @@ function FormProduto() {
             alert("Erro ao cadastrar produto aaaaaaaaaaaaa");
         }
     };
+    
 
     return (
   <main className="product-form-page">
@@ -93,6 +94,7 @@ function FormProduto() {
                 name="nome"
                 id="nome"
                 required
+                value= {formData.nome}
                 minLength={3}
                 onChange={handleChange}
                 placeholder="Digite o nome do produto"
@@ -109,6 +111,7 @@ function FormProduto() {
                 name="codigo"
                 id="codigo"
                 required
+                value= {formData.codigo}
                 onChange={handleChange}
                 placeholder="Digite o codigo do produto"
                 className="product-form__input"
@@ -127,6 +130,7 @@ function FormProduto() {
                 name="id_categoria"
                 id="id_categoria"
                 min={1}
+                value= {formData.id_categoria}
                 onChange={handleChange}
                 placeholder="ID da categoria"
                 className="product-form__input"
@@ -159,6 +163,7 @@ function FormProduto() {
               required
               minLength={5}
               rows={4}
+              value= {formData.descricao}
               onChange={(event) => setFormData(prev => ({ ...prev, descricao: event.target.value }))}
               placeholder="Descreva as características do produto"
               className="product-form__input product-form__textarea"
@@ -176,6 +181,7 @@ function FormProduto() {
                 name="preco_unitario"
                 id="preco_unitario"
                 required
+                value= {formData.preco_unitario}
                 min={0}
                 step="0.01"
                 onChange={handleChange}
@@ -193,6 +199,7 @@ function FormProduto() {
                 name="quantidade_disponivel"
                 id="quantidade_disponivel"
                 required
+                value= {formData.quantidade_disponivel}
                 min={0}
                 onChange={handleChange}
                 placeholder="0"
@@ -209,6 +216,7 @@ function FormProduto() {
                 name="quantidade_minima"
                 id="quantidade_minima"
                 required
+                value= {formData.quantidade_minima}
                 min={0}
                 onChange={handleChange}
                 placeholder="0"
