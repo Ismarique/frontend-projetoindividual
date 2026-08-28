@@ -55,6 +55,7 @@ function ListagemProdutos(): JSX.Element {
                             <tr>
                                 <th className="py-3.5 px-4">ID</th>
                                 <th className="py-3.5 px-4">Categoria</th>
+                                <th className="py-3.5 px-4">Data de cadastro</th>
                                 <th className="py-3.5 px-4">Código</th>
                                 <th className="py-3.5 px-4">Nome</th>
                                 <th className="py-3.5 px-4">Descrição</th>
@@ -62,7 +63,6 @@ function ListagemProdutos(): JSX.Element {
                                 <th className="py-3.5 px-4">Disponível</th>
                                 <th className="py-3.5 px-4">Qtd. mínima</th>
                                 <th className="py-3.5 px-4">Ativo</th>
-                                <th className="py-3.5 px-4">Status</th>
                                 <th className="py-3.5 px-4 text-center">Ações</th>
                             </tr>
                         </thead>
@@ -72,6 +72,11 @@ function ListagemProdutos(): JSX.Element {
                                     <tr key={produto.id_produto} className="hover:bg-emerald-950/20 transition-colors">
                                         <td className="py-3.5 px-4 text-zinc-500 font-mono text-xs">#{produto.id_produto}</td>
                                         <td className="py-3.5 px-4 font-mono text-zinc-400">{produto.id_categoria ?? 'Não informado'}</td>
+                                        <td className="py-3.5 px-4 font-mono text-zinc-400">
+                                            {produto.data_cadastro
+                                                ? new Date(produto.data_cadastro).toLocaleDateString('pt-BR')
+                                                : 'Não informado'}
+                                        </td>
                                         <td className="py-3.5 px-4 font-mono text-zinc-400">{produto.codigo}</td>
                                         <td className="py-3.5 px-4 font-semibold text-zinc-100">{produto.nome}</td>
                                         <td className="product-table__description">{produto.descricao || 'Não informado'}</td>
@@ -92,15 +97,6 @@ function ListagemProdutos(): JSX.Element {
                                         <td className="py-3.5 px-4">
                                             <span className={`product-table__status ${produto.ativo ? 'is-active' : 'is-inactive'}`}>
                                                 {produto.ativo ? 'Sim' : 'Não'}
-                                            </span>
-                                        </td>
-                                        <td className="py-3.5 px-4">
-                                            <span className={`px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wider uppercase border ${
-                                                produto.status === 'ativo'
-                                                    ? 'bg-emerald-950/80 text-emerald-400 border-emerald-500/40' 
-                                                    : 'bg-red-950/80 text-red-400 border-red-500/40'
-                                            }`}>
-                                                {produto.status || 'Não informado'}
                                             </span>
                                         </td>
                                         <td className="py-3.5 px-4 text-center">

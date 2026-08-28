@@ -6,15 +6,14 @@ const API_URL = import.meta.env.VITE_API_SERVER_URL || "http://localhost:8080";
 type ProdutoApi = Partial<ProdutoDTO> & {
     idProduto?: number;
     idCategoria?: number;
-    nomeProduto?: string;
+    dataCadastro?: string;
     nome?: string;
-    codigoProduto?: number;
-    codigo?: number;
+    codigo?: number | string;
     preco?: number;
-    precoProduto?: number;
-    quantidadeEstoque?: number;
+    precoUnitario?: number;
     quantidadeDisponivel?: number;
     quantidadeMinima?: number;
+    ativo?: boolean
 };
 
 class ProdutoRequests {
@@ -54,14 +53,14 @@ class ProdutoRequests {
             return dados.map((item: ProdutoApi) => ({
                 id_produto: item.id_produto ?? item.idProduto,
                 id_categoria: Number(item.id_categoria ?? item.idCategoria ?? 0),
-                nome: item.nome ?? item.nomeProduto ?? item.descricao ?? "Produto sem nome",
-                codigo: item.codigo ?? item.codigoProduto ?? item.id_produto ?? item.idProduto ?? 0,
+                data_cadastro: item.data_cadastro ?? item.dataCadastro,
+                nome: item.nome ?? item.nome ?? item.descricao ?? "Produto sem nome",
+                codigo: String(item.codigo ?? item.codigo ?? ""),
                 descricao: item.descricao ?? "",
-                preco_unitario: Number(item.preco_unitario ?? item.preco ?? item.precoProduto ?? 0),
-                quantidade_disponivel: Number(item.quantidade_disponivel ?? item.quantidadeDisponivel ?? item.quantidadeEstoque ?? 0),
+                preco_unitario: Number(item.preco_unitario ?? item.preco ?? item.precoUnitario ?? 0),
+                quantidade_disponivel: Number(item.quantidade_disponivel ?? item.quantidadeDisponivel ?? 0),
                 quantidade_minima: Number(item.quantidade_minima ?? item.quantidadeMinima ?? 0),
                 ativo: item.ativo ?? true,
-                status: item.status ?? (item.ativo === false ? "inativo" : "ativo")
             }));
         } catch (error) {
             console.error(`Erro ao fazer a consulta de produtos. ${error}`);

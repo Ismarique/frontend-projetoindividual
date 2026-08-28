@@ -3,18 +3,26 @@ import { useNavigate } from 'react-router-dom';
 import ProdutoRequests from '../../../fetch/ProdutoRequests';
 import type ProdutoDTO from '../../../dto/ProdutoDTO';
 
+const obterDataAtual = () => {
+  const data = new Date();
+  const ano = data.getFullYear();
+  const mes = String(data.getMonth() + 1).padStart(2, '0');
+  const dia = String(data.getDate()).padStart(2, '0');
+  return `${ano}-${mes}-${dia}`;
+};
+
 function FormProduto() {
     const navigate = useNavigate();
     const [formData, setFormData] = useState<ProdutoDTO>({
         id_categoria: undefined,
+        data_cadastro: obterDataAtual(),
         nome: '',
-        codigo: 0,
+        codigo: '',
         descricao: '',
         preco_unitario: 0,
         quantidade_disponivel: 0,
         quantidade_minima: 0,
-        ativo: true,
-        status: ''
+        ativo: true
     });
 
     // Atualiza o state a partir de qualquer input do formulário
@@ -29,7 +37,7 @@ function FormProduto() {
         }
 
         // Trata campos numéricos
-        if (name === 'codigo' || name === 'preco_unitario' || name === 'quantidade_disponivel' || name === 'quantidade_minima' || name === 'id_categoria') {
+        if (name === 'preco_unitario' || name === 'quantidade_disponivel' || name === 'quantidade_minima' || name === 'id_categoria') {
             setFormData(prev => ({ ...prev, [name]: value === '' ? '' : Number(value) }));
             return;
         }
@@ -52,7 +60,7 @@ function FormProduto() {
         if (resposta) {
             alert("Produto cadastrado com sucesso");
         } else {
-            alert("Erro ao cadastrar produto");
+            alert("Erro ao cadastrar produto aaaaaaaaaaaaa");
         }
     };
 
@@ -97,19 +105,18 @@ function FormProduto() {
                 Código do Produto
               </label>
               <input
-                type="number"
+                type="text"
                 name="codigo"
                 id="codigo"
                 required
-                min={0}
                 onChange={handleChange}
-                placeholder="Ex: 12345"
+                placeholder="Digite o codigo do produto"
                 className="product-form__input"
               />
             </div>
           </div>
 
-          {/* Linha 2: Categoria e Status */}
+          {/* Linha 2: Categoria e data de cadastro */}
           <div className="product-form__row">
             <div className="product-form__field">
               <label htmlFor="id_categoria" className="product-form__label">
@@ -127,23 +134,18 @@ function FormProduto() {
             </div>
 
             <div className="product-form__field">
-              <label htmlFor="status" className="product-form__label">
-                Status
+              <label htmlFor="data_cadastro" className="product-form__label">
+                Data de cadastro
               </label>
-              <select
-                name="status"
-                id="status"
+              <input
+                type="date"
+                name="data_cadastro"
+                id="data_cadastro"
                 required
+                value={formData.data_cadastro ?? ''}
                 onChange={handleChange}
-                defaultValue=""
                 className="product-form__input"
-              >
-                <option value="" disabled className="bg-zinc-900 text-zinc-400">Selecione o status</option>
-                <option value="ATIVO" className="bg-zinc-900 text-white">Ativo</option>
-                <option value="INATIVO" className="bg-zinc-900 text-white">Inativo</option>
-                <option value="EM_FALTA" className="bg-zinc-900 text-white">Em falta</option>
-                <option value="DESCONTINUADO" className="bg-zinc-900 text-white">Descontinuado</option>
-              </select>
+              />
             </div>
           </div>
 
