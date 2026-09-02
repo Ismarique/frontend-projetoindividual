@@ -1,7 +1,7 @@
 export default interface ProdutoDTO {
   id_produto?: number;
   id_categoria?: number;
-  data_cadastro?: string;
+  data_cadastro?: Date | string;
   nome: string;
   codigo: string;
   descricao: string;

@@ -68,27 +68,28 @@ class ProdutoRequests {
         }
     }
 
-//    async obterProdutoPorId(id_produto: number): Promise<ProdutoDTO | undefined> {
-//        try {
-//            const token = localStorage.getItem('token');
-//            const respostaAPI = await fetch(`${this.serverURL}${this.endpointProduto}/${id_produto}`, {
-//                headers: {
-//                    'Content-Type': 'application/json',
-//                    'x-access-token': `${token}`
-//                }
-//            });
-//            if (respostaAPI.ok) {
-//                const produto: ProdutoDTO = await respostaAPI.json();
-//                return produto;
-//            } else {
-//                throw new Error("Não foi possível buscar o produto.");
-//            }
-//        } catch (error) {
-//            console.error(`Erro ao fazer a consulta de produto por ID. ${error}`);
-//            return;
-//        }
-//    }
-//
+ async obterProdutoPorId(id_produto: number): Promise<ProdutoDTO | undefined> {
+     try {
+         const token = localStorage.getItem('token');
+         const respostaAPI = await fetch(`${this.serverURL}${this.endpointProduto}/${id_produto}`, {
+             headers: {
+                 'Content-Type': 'application/json',
+                 'x-access-token': `${token}`
+             }
+         });
+         if (respostaAPI.ok) {
+             const produto: ProdutoDTO = await respostaAPI.json();
+             return produto;
+         } else {
+             throw new Error("Não foi possível buscar o produto.");
+         }
+         
+     } catch (error) {
+         console.error(`Erro ao fazer a consulta de produto por ID. ${error}`);
+         return;
+     }
+ }
+
         async enviarFormularioProduto(formProduto: ProdutoDTO): Promise<boolean> {
             try {
                 const token = localStorage.getItem('token');

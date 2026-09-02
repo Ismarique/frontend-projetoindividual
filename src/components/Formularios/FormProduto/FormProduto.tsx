@@ -146,7 +146,7 @@ function FormProduto() {
                 name="data_cadastro"
                 id="data_cadastro"
                 required
-                value={formData.data_cadastro ?? ''}
+                //value={formData.data_cadastro ?? ''}
                 onChange={handleChange}
                 className="product-form__input"
               />
