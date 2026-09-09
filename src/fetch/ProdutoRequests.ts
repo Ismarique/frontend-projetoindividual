@@ -112,49 +112,25 @@ class ProdutoRequests {
                 return false;
             }
         }
-//
-//    async atualizarProduto(id_produto: number, formProduto: ProdutoDTO): Promise<boolean> {
-//        try {
-//            const token = localStorage.getItem('token');
-//            const respostaAPI = await fetch(`${this.serverURL}${this.endpointProduto}/${id_produto}`, {
-//                method: 'PUT',
-//                headers: {
-//                    'Content-Type': 'application/json',
-//                    'x-access-token': `${token}`
-//                },
-//                body: JSON.stringify(formProduto)
-//            });
-//            if (!respostaAPI.ok) throw new Error(`Erro ${respostaAPI.status}: ${respostaAPI.statusText}`);
-//            console.info(`${respostaAPI.status}: ${respostaAPI.statusText}`);
-//            return true;
-//        } catch (error) {
-//            console.error(`Erro ao fazer consulta à API. ${error}`);
-//            return false;
-//        }
-//    }
-//
-//    async removerProduto(id_produto: number): Promise<boolean> {
-//        try {
-//            const token = localStorage.getItem('token');
-//            const respostaAPI = await fetch(`${this.serverURL}${this.endpointProduto}/${id_produto}`, {
-//                method: 'DELETE',
-//                headers: {
-//                    'Content-Type': 'application/json',
-//                    'x-access-token': `${token}`
-//                }
-//            });
-//            if (!respostaAPI.ok) {
-//                const errorData = await respostaAPI.json().catch(() => ({}));
-//                const errorMessage = errorData.mensagem || `Erro ${respostaAPI.status}: ${respostaAPI.statusText}`;
-//                throw new Error(errorMessage);
-//            }
-//            console.info(`${respostaAPI.status} ${respostaAPI.statusText}`);
-//            return true;
-//        } catch (error) {
-//            console.error(`Erro ao fazer consulta à API. ${error}`);
-//            throw error;
-//        }
-//    }
+    async atualizarProduto(id_produto: number, formProduto: ProdutoDTO): Promise<boolean> {
+        try {
+            const token = localStorage.getItem('token');
+            const respostaAPI = await fetch(`${this.serverURL}${this.endpointProduto}/${id_produto}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-access-token': `${token}`
+                },
+                body: JSON.stringify(formProduto)
+            });
+            if (!respostaAPI.ok) throw new Error(`Erro ${respostaAPI.status}: ${respostaAPI.statusText}`);
+            return true;
+        } catch (error) {
+            console.error(`Erro ao atualizar produto. ${error}`);
+            return false;
+        }
+    }
+
 }
 
 export default new ProdutoRequests;

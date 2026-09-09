@@ -106,6 +106,12 @@ function ListagemProdutos(): JSX.Element {
                                             >
                                                 Detalhes
                                             </button>
+                                            <button
+                                                onClick={() => navigate(`/atualizar/produto/${produto.id_produto}`)}
+                                                className="product-table__details"
+                                            >
+                                                Atualizar
+                                            </button>
                                         </td>
                                     </tr>
                                 ))

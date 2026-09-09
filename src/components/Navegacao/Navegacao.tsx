@@ -11,6 +11,7 @@ function Navegacao(): JSX.Element {
         { label: 'Início', icon: 'pi pi-home', url: '/' },
         { label: 'Produtos', icon: 'pi pi-desktop', url: '/lista/produto' },
         { label: 'Categorias', icon: 'pi pi-tags', url: '/lista/categoria' },
+        { label: 'Movimentações', icon: 'pi pi-arrow-right-arrow-left', url: '/lista/movimentacao' },
     ];
 
     useEffect(() => {
