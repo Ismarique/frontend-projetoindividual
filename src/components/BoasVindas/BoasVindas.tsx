@@ -14,7 +14,7 @@ export default function BoasVindas() {
         </p>
 
         <a href="/lista/produto" className="hero-button">
-          Ver Produtos
+          ver itens
         </a>
       </div>
     </section>

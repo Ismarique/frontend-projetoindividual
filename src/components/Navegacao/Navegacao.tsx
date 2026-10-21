@@ -94,6 +94,9 @@ function Navegacao(): JSX.Element {
                     })}
                 </nav>
             )}
+
+            
+
         </header>
     );
 }

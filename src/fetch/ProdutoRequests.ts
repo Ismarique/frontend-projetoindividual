@@ -1,6 +1,7 @@
 // Classe responsável por fazer requisições à API - produto
 import type ProdutoDTO from "../dto/ProdutoDTO";
 
+
 const API_URL = import.meta.env.VITE_API_SERVER_URL || "http://localhost:3333";
 
 type ProdutoApi = Partial<ProdutoDTO> & {
@@ -130,6 +131,7 @@ class ProdutoRequests {
             return false;
         }
     }
+
 
 }
 
