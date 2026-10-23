@@ -40,6 +40,7 @@ function DetalhesMovimentacao({id_movimentacao}:DetalhesMovimentacaoProps): JSX.
             <div className="product-details-container">
                 <Link to="/lista/movimentacao" className="product-details__back"><i className="pi pi-arrow-left"></i> Voltar para movimentações</Link>
                 {carregando && <p className="product-details__message">Carregando movimentação...</p>}
+                {!carregando && erro && <p className="product-details__message product-details__message--error">{erro}</p>}
                 {!carregando && !movimentacao && <p className="product-details__message product-details__message--error">Movimentação não encontrada.</p>}
                 {!carregando && movimentacao && (
                     <section className="product-details">
