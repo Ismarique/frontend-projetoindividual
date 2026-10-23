@@ -4,9 +4,9 @@ import DetalhesMovimentacao from '../../../components/Detalhes/DetalhesMovimenta
 import Rodape from '../../../components/Rodape/Rodape';
 import { useParams } from 'react-router-dom';
 
-const {id_movimentacao} = useParams ();
-
 function PDetalhesMovimentacao(): JSX.Element {
+    const { id_movimentacao } = useParams();
+
     return <div className="min-h-screen flex flex-col">
         <Navegacao />
         <DetalhesMovimentacao id_movimentacao={Number(id_movimentacao)} />
